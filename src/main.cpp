@@ -76,3 +76,27 @@ void setup() {
  *
  * @return void
  */
+void loop() {
+ // write your code here
+ float humidity = dht.readHumidity();
+ float temperature = dht.readTemperature();
+
+ if (isnan(humidity) || isnan(temperature)) {
+  /* DHT library returns NAN when a read fails. Print a diagnostic and
+     retry on the next loop iteration after a short delay. */
+  Serial.println("Failed to read from DHT sensor!");
+  delay(2000);
+  return;
+ }
+
+ Serial.print("Humidity: ");
+ Serial.print(humidity);
+ Serial.print(" %\t");
+ Serial.print("Temperature: ");
+ Serial.print(temperature);
+ Serial.println(" *C");
+
+ // Wait 2 seconds between readings (DHT11 minimum sampling period ~1s)
+ delay(2000);
+}
+
