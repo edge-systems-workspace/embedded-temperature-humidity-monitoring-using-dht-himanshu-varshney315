@@ -14,7 +14,7 @@
  * Usage:
  *  - Monitor the serial output at 9600 baud to see humidity and temperature readings.
  *
- * @author
+ * @author himanshu gupta
  * @date 2026-02-17
  * @version 1.0
  *
