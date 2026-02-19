@@ -52,3 +52,27 @@ DHT dht(DHTPIN, DHTTYPE);
  *
  * @return void
  */
+void setup() {
+ // write your initialization code here
+ Serial.begin(9600);
+ dht.begin();
+ Serial.println("DHT11 Sensor initialized");
+}
+
+/**
+ * @brief Arduino loop() function.
+ *
+ * Reads humidity and temperature from the DHT sensor every 2 seconds and
+ * prints formatted results to the serial console. If the sensor read fails,
+ * a diagnostic message is printed and the function returns early; the next
+ * iteration will retry after the standard delay.
+ *
+ * Typical output:
+ *  "Humidity: 45.00 %	Temperature: 22.00 *C"
+ *
+ * Edge cases handled:
+ *  - If either humidity or temperature is not-a-number (NaN) the read is
+ *    considered failed and a message is printed to the serial console.
+ *
+ * @return void
+ */
